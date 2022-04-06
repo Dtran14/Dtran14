@@ -1,0 +1,51 @@
+Assignment 3 (Due Week 8)
+
+This Assignment gets you to:
+
+• Break a more complex problem down into simple steps to create an algorithm
+
+• Use required modules
+
+• Use the Selection and Repetition control structures 
+
+ A positive integer greater than 1 is said to be prime if it has no divisors other than 1 and itself. A positive integer greater than 1 is composite if it is not prime. Writen a program that asks the user to generate and display random odd numbers between 1 and 1001, then displays all of the prime numbers that are less than or equal to the number entered. The program should work as follows:
+- Once the random number has been created, the program should populate a list with all integers from 2 up through the value entered.
+- The program should then use a loop to step through the list. The loop should pass each element to a function that displays the element whether it is a prime number.
+Coding requirements:
+The program must include user-defined functions to modularize the code.
+Make sure to put comments into your code (including your details at the top of the program)
+
+import math
+ 
+"""
+ * check prime number
+ * 
+ * n: is interger
+ * return true is prime number, 
+ *         false is not prime number
+"""
+def isPrimeNumber(n):
+    # integer n < 2 is not prime number
+    if (n < 2):
+        return False;
+ 
+    # check prime number when n >= 2
+    squareRoot = int(math.sqrt(n));
+    for i in range(2, squareRoot + 1):
+        if (n % i == 0):
+            return False;
+    return True;
+    #input prime number n>=1 and n<=1001
+n = int(input("Please input number between 1 to 1001 n = "));
+if (n>=1 and n <=1001):
+    print ("All prime number smaller than", n, "is:");
+    sb = "";
+    if (n >= 2 ):
+        sb = sb + "2" + " ";
+    for i in range (3, n+1):
+        if (isPrimeNumber(i)):
+            sb = sb + str(i) + " ";
+        i = i + 2;
+    print(sb);
+else :
+     print("Please input the number between 1 to 1001");
