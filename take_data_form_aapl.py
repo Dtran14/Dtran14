@@ -39,9 +39,10 @@ def getAverageTrades(days,trades):
             march.append(float(trades[i]))
     return sum(feb)/len(feb),sum(march)/len(march)
 #make call to get the days and trades
-days,trades = open("D:/asus/AAPL.txt", "r")
+days = trades = open("AAPL.txt", "r")
 foo = days,trades.read()
 print(foo)
+quit()
 #find the maximum and minimum trade volumnes
 maximum,minimum= getMaxMinTrades(trades)
 #display the result
